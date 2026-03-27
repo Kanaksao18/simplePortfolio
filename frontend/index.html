@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Kanak's recruiter-focused portfolio featuring full stack Java, Android, and backend engineering projects." />
+  <title>Kanak | Full Stack Java Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            midnight: "#050816",
+            ink: "#0b1120",
+            panel: "rgba(10, 19, 41, 0.72)",
+            cyanAccent: "#22d3ee",
+            cyanSoft: "#67e8f9",
+            slateSoft: "#94a3b8"
+          },
+          fontFamily: {
+            display: ["Space Grotesk", "sans-serif"],
+            body: ["Manrope", "sans-serif"]
+          },
+          boxShadow: {
+            glow: "0 0 0 1px rgba(34, 211, 238, 0.15), 0 18px 60px rgba(34, 211, 238, 0.18)",
+            card: "0 20px 60px rgba(2, 12, 27, 0.45)"
+          },
+          backgroundImage: {
+            radial: "radial-gradient(circle at top, rgba(34,211,238,0.14), transparent 35%)"
+          }
+        }
+      }
+    };
+  </script>
+  <style type="text/tailwindcss">
+    @layer base {
+      body {
+        @apply bg-midnight bg-radial text-slate-100 font-body antialiased;
+      }
+
+      section {
+        @apply scroll-mt-24;
+      }
+    }
+
+    @layer components {
+      .glass-card {
+        @apply bg-panel backdrop-blur-xl border border-white/10 shadow-card;
+      }
+
+      .section-shell {
+        @apply mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-12;
+      }
+
+      .section-title {
+        @apply font-display text-3xl font-bold text-white sm:text-4xl;
+      }
+
+      .section-copy {
+        @apply mt-4 max-w-2xl text-base leading-8 text-slate-300;
+      }
+
+      .nav-link {
+        @apply rounded-full px-4 py-2 text-sm font-semibold text-slate-300 transition duration-300 hover:text-cyanAccent;
+      }
+
+      .nav-link.active {
+        @apply bg-cyanAccent/10 text-cyanAccent;
+      }
+
+      .primary-btn {
+        @apply inline-flex items-center justify-center rounded-full border border-cyanAccent/30 bg-cyanAccent/10 px-6 py-3 text-sm font-bold text-cyanAccent transition duration-300 hover:-translate-y-0.5 hover:border-cyanAccent hover:bg-cyanAccent hover:text-ink hover:shadow-glow;
+      }
+
+      .secondary-btn {
+        @apply inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-bold text-white transition duration-300 hover:-translate-y-0.5 hover:border-cyanAccent/30 hover:bg-white/10;
+      }
+
+      .tag {
+        @apply rounded-full border border-cyanAccent/20 bg-cyanAccent/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyanSoft;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+    <div class="absolute left-1/2 top-0 h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-cyanAccent/10 blur-3xl">
+    </div>
+    <div class="absolute bottom-0 right-0 h-[24rem] w-[24rem] rounded-full bg-cyanAccent/10 blur-3xl"></div>
+  </div>
+
+  <header class="sticky top-0 z-50 border-b border-white/5 bg-ink/80 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-8 lg:px-12">
+      <a href="#home" class="font-display text-lg font-bold tracking-wide text-white">Kanak</a>
+      <button id="menu-toggle"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-white md:hidden"
+        aria-label="Toggle navigation">
+        <span class="text-sm font-semibold uppercase tracking-[0.18em]">Menu</span>
+      </button>
+      <nav id="desktop-nav" class="hidden items-center gap-2 md:flex">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#certifications" class="nav-link">Certifications</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
+    <nav id="mobile-nav" class="hidden border-t border-white/5 px-6 pb-5 md:hidden">
+      <div class="flex flex-col gap-2 pt-4">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#certifications" class="nav-link">Certifications</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <div class="section-shell grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
+        <div data-aos="fade-up" data-aos-duration="900">
+          <span class="tag">Available for impactful engineering roles</span>
+          <h1 class="mt-6 max-w-3xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+            Hi, I&apos;m Kanak
+          </h1>
+          <p class="mt-5 max-w-3xl text-xl font-semibold text-cyanSoft sm:text-2xl">
+            Full Stack Java Developer | Android Developer
+          </p>
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+            I build reliable backend systems, polished user experiences, and recruiter-ready products that solve real
+            business problems with clean architecture and strong execution.
+          </p>
+          <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+            <a href="./assets/Kanak-Resume.pdf" download class="primary-btn">Download Resume</a>
+            <a href="#contact" class="secondary-btn">Get in Touch</a>
+          </div>
+          <div class="mt-10 flex flex-wrap gap-3 text-sm text-slate-300">
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2">Backend-focused problem solver</span>
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2">DSA-driven engineering mindset</span>
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2">Production-ready full stack
+              delivery</span>
+          </div>
+        </div>
+
+        <div data-aos="zoom-in" data-aos-duration="1000" class="relative mx-auto max-w-md">
+          <div class="absolute inset-0 rounded-[2rem] bg-cyanAccent/20 blur-3xl"></div>
+          <div
+            class="glass-card group relative overflow-hidden rounded-[2rem] p-4 transition duration-500 hover:-translate-y-2 hover:shadow-glow">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-cyanAccent/15 via-transparent to-transparent opacity-0 transition duration-500 group-hover:opacity-100">
+            </div>
+            <img src="./assets/profile-portrait.jpeg" alt="Illustrated profile portrait of Kanak"
+              class="relative z-10 w-full rounded-[1.5rem] border border-white/10 bg-slate-950/70" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-shell">
+        <div data-aos="fade-up">
+          <span class="tag">About</span>
+          <h2 class="section-title">Engineer with a backend-first mindset and product awareness</h2>
+          <p class="section-copy">
+            I am a Full Stack Java Developer with mid-level experience delivering scalable web applications, backend
+            services, and Android experiences. My work blends strong data structures and algorithms foundations with
+            practical product thinking, helping teams ship software that is efficient, maintainable, and easy for users
+            to trust. I&apos;m comfortable owning APIs, business logic, database flows, and frontend integration while
+            keeping code quality and performance in focus.
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div data-aos="fade-right" class="glass-card rounded-3xl p-8">
+            <h3 class="font-display text-2xl font-bold text-white">What I bring to a team</h3>
+            <div class="mt-6 grid gap-5 sm:grid-cols-2">
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyanSoft">Backend Engineering</p>
+                <p class="mt-3 text-slate-300">Designing Java services, database-backed workflows, and business logic
+                  that stay clean under growth.</p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyanSoft">Full Stack Delivery</p>
+                <p class="mt-3 text-slate-300">Bridging frontend and backend implementation to ship complete features
+                  with fewer handoff gaps.</p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyanSoft">Problem Solving</p>
+                <p class="mt-3 text-slate-300">Applying DSA and structured debugging to build stable systems and resolve
+                  edge cases quickly.</p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyanSoft">Android Experience</p>
+                <p class="mt-3 text-slate-300">Building mobile experiences that balance performance, clarity, and
+                  maintainable app structure.</p>
+              </div>
+            </div>
+          </div>
+
+          <div data-aos="fade-left" class="glass-card rounded-3xl p-8">
+            <h3 class="font-display text-2xl font-bold text-white">Core skills</h3>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <span class="tag">Java</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">Spring Security</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">Express.js</span>
+              <span class="tag">SQL</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">Redis</span>
+              <span class="tag">Tailwind CSS</span>
+              <span class="tag">JWT</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">Docker</span>
+              <span class="tag">WebSockets</span>
+              <span class="tag">Cloud Computing</span>
+              <span class="tag">C++</span>
+              <span class="tag">Android</span>
+              <span class="tag">Git & GitHub</span>
+            </div>
+            <div class="mt-8 rounded-2xl border border-cyanAccent/20 bg-cyanAccent/5 p-6">
+              <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyanSoft">Recruiter snapshot</p>
+              <ul class="mt-4 space-y-3 text-slate-300">
+                <li>Builds end-to-end features from API design through polished UI.</li>
+                <li>Comfortable with production patterns, validation, and deployment workflows.</li>
+                <li>Strong fit for backend-heavy full stack roles and engineering teams that value ownership.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-shell">
+        <div data-aos="fade-up">
+          <span class="tag">Projects</span>
+          <h2 class="section-title">Selected work that reflects engineering depth and delivery quality</h2>
+          <p class="section-copy">
+            Each project below is written to help recruiters quickly understand the problem, the business value, and the
+            implementation choices behind the solution.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <article data-aos="fade-up"
+            class="glass-card group rounded-3xl p-7 transition duration-300 hover:-translate-y-2 hover:border-cyanAccent/30 hover:shadow-glow">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-display text-2xl font-bold text-white">MDM</h3>
+                <p class="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Feb 2026 - Feb 2026</p>
+              </div>
+              <span class="tag">Enterprise</span>
+            </div>
+            <p class="mt-5 text-slate-300">
+              Built a full-stack Mobile Device Management platform for device heartbeat processing, searchable
+              inventory, inactive-device tracking, and audit timelines. Added rollout workflows with phased progression,
+              failed-device retry, and observability for operational confidence.
+            </p>
+            <p class="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-cyanSoft">Java 21, Spring Boot, React,
+              PostgreSQL, Redis, JWT, Docker Compose</p>
+            <div class="mt-6 flex gap-3">
+              <a href="https://github.com/Kanaksao18/Mobile-Device-Management-System" target="_blank" rel="noreferrer"
+                class="primary-btn">GitHub</a>
+              <a href="#" class="secondary-btn">Live Demo</a>
+            </div>
+          </article>
+
+          <article data-aos="fade-up" data-aos-delay="80"
+            class="glass-card group rounded-3xl p-7 transition duration-300 hover:-translate-y-2 hover:border-cyanAccent/30 hover:shadow-glow">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-display text-2xl font-bold text-white">RoomMateX</h3>
+                <p class="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Jan 2025 - Present</p>
+              </div>
+              <span class="tag">Full Stack</span>
+            </div>
+            <p class="mt-5 text-slate-300">
+              Built a rental and roommate platform for room listings, roommate matching, bookings, and real-time chat.
+              Owned the backend architecture end to end, including secure authentication, refresh tokens, email
+              verification, payments, caching, and deployment-ready APIs.
+            </p>
+            <p class="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-cyanSoft">Spring Boot, React,
+              PostgreSQL, WebSockets, Tailwind CSS, JWT, REST APIs</p>
+            <div class="mt-6 flex gap-3">
+              <a href="https://github.com/Kanaksao18/RoomMateX" target="_blank" rel="noreferrer"
+                class="primary-btn">GitHub</a>
+              <a href="#" class="secondary-btn">Live Demo</a>
+            </div>
+          </article>
+
+          <article data-aos="fade-up" data-aos-delay="160"
+            class="glass-card group rounded-3xl p-7 transition duration-300 hover:-translate-y-2 hover:border-cyanAccent/30 hover:shadow-glow">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-display text-2xl font-bold text-white">Monastery Explorer</h3>
+                <p class="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Nov 2025 - Jan 2026</p>
+              </div>
+              <span class="tag">Tourism</span>
+            </div>
+            <p class="mt-5 text-slate-300">
+              Delivered an interactive Sikkim tourism platform with AI-based itinerary generation, monastery
+              recommendations, multilingual support, and rich discovery flows. Streamlined admin work through a CMS and
+              Cloudinary-powered content management while keeping the interface highly responsive.
+            </p>
+            <p class="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-cyanSoft">React, Tailwind CSS,
+              Node.js, Express.js, MongoDB, Cloudinary, JWT</p>
+            <div class="mt-6 flex gap-3">
+              <a href="https://github.com/Kanaksao18/Tourism" target="_blank" rel="noreferrer"
+                class="primary-btn">GitHub</a>
+              <a href="#" class="secondary-btn">Live Demo</a>
+            </div>
+          </article>
+
+          <article data-aos="fade-up"
+            class="glass-card group rounded-3xl p-7 transition duration-300 hover:-translate-y-2 hover:border-cyanAccent/30 hover:shadow-glow">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-display text-2xl font-bold text-white">Portfolio Rebalancer</h3>
+                <p class="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Mar 2026 - Mar 2026</p>
+              </div>
+              <span class="tag">FinTech</span>
+            </div>
+            <p class="mt-5 text-slate-300">
+              Engineered a wealth management platform with an automated rebalancing engine that calculates asset drift
+              and generates actionable buy or sell recommendations. Backed it with a robust relational data layer and an
+              interactive dashboard for portfolio health, distribution, and historical activity.
+            </p>
+            <p class="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-cyanSoft">React, Vite, Node.js,
+              Express.js, SQLite, SQL, CSS3</p>
+            <div class="mt-6 flex gap-3">
+              <a href="https://github.com/Kanaksao18/portfolio-rebalancer" target="_blank" rel="noreferrer"
+                class="primary-btn">GitHub</a>
+              <a href="#" class="secondary-btn">Live Demo</a>
+            </div>
+          </article>
+
+          <article data-aos="fade-up" data-aos-delay="80"
+            class="glass-card group rounded-3xl p-7 transition duration-300 hover:-translate-y-2 hover:border-cyanAccent/30 hover:shadow-glow">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-display text-2xl font-bold text-white">Home AI</h3>
+                <p class="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Feb 2025 - May 2025</p>
+              </div>
+              <span class="tag">AI + IoT</span>
+            </div>
+            <p class="mt-5 text-slate-300">
+              Built an AI-powered home controlling system that lets users operate smart devices through a voice-driven
+              interface. Delivered a responsive React frontend and scalable Express backend that process speech input in
+              real time and convert commands into device actions.
+            </p>
+            <p class="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-cyanSoft">React.js, Node.js,
+              Express.js, Speech Recognition API</p>
+            <div class="mt-6 flex gap-3">
+              <a href="https://github.com/Kanaksao18/Home-AI" target="_blank" rel="noreferrer"
+                class="primary-btn">GitHub</a>
+              <a href="#" class="secondary-btn">Live Demo</a>
+            </div>
+          </article>
+
+          <article data-aos="fade-up" data-aos-delay="160"
+            class="glass-card group rounded-3xl p-7 transition duration-300 hover:-translate-y-2 hover:border-cyanAccent/30 hover:shadow-glow">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-display text-2xl font-bold text-white">My Store</h3>
+                <p class="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">E-commerce Project</p>
+              </div>
+              <span class="tag">Commerce</span>
+            </div>
+            <p class="mt-5 text-slate-300">
+              Added your e-commerce website as a recruiter-facing project focused on product discovery, cart management,
+              checkout flow, and complete storefront delivery. This copy is ready to be refined once you share the exact
+              stack, features, and live link.
+            </p>
+            <p class="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-cyanSoft">React, Node.js, Express.js,
+              Database, Payments, REST APIs</p>
+            <div class="mt-6 flex gap-3">
+              <a href="https://github.com/Kanaksao18/My-Store" target="_blank" rel="noreferrer"
+                class="primary-btn">GitHub</a>
+              <a href="#" class="secondary-btn">Live Demo</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <div class="section-shell">
+        <div data-aos="fade-up">
+          <span class="tag">Certifications</span>
+          <h2 class="section-title">Credentials that support hands-on engineering work</h2>
+          <p class="section-copy">
+            These certifications highlight frontend fundamentals, applied AI tooling, and cloud computing knowledge that strengthen my full stack and backend engineering profile.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <article data-aos="fade-up" class="glass-card overflow-hidden rounded-3xl">
+            <img src="./assets/cert-meta.png" alt="Meta Front-End Development certificate"
+              class="h-52 w-full object-cover" />
+            <div class="p-7">
+              <h3 class="font-display text-2xl font-bold text-white">Introduction to Front-End Development</h3>
+              <p class="mt-2 text-sm uppercase tracking-[0.18em] text-cyanSoft">Meta / Coursera</p>
+              <p class="mt-4 text-slate-300">Covers modern frontend fundamentals including HTML, CSS, JavaScript basics, and the building blocks of responsive user interfaces.</p>
+            </div>
+          </article>
+
+          <article data-aos="fade-up" data-aos-delay="80" class="glass-card overflow-hidden rounded-3xl">
+            <img src="./assets/cert-genai.png" alt="Infosys Generative AI certificate"
+              class="h-52 w-full object-cover" />
+            <div class="p-7">
+              <h3 class="font-display text-2xl font-bold text-white">Build Generative AI Apps and Solutions with No-Code
+                Tools</h3>
+              <p class="mt-2 text-sm uppercase tracking-[0.18em] text-cyanSoft">Infosys Springboard</p>
+              <p class="mt-4 text-slate-300">Demonstrates hands-on exposure to generative AI application workflows, solution design thinking, and practical no-code implementation concepts.</p>
+            </div>
+          </article>
+
+          <article data-aos="fade-up" data-aos-delay="160" class="glass-card overflow-hidden rounded-3xl">
+            <img src="./assets/cert-cloud.png" alt="NPTEL Cloud Computing certificate"
+              class="h-52 w-full object-cover" />
+            <div class="p-7">
+              <h3 class="font-display text-2xl font-bold text-white">Cloud Computing</h3>
+              <p class="mt-2 text-sm uppercase tracking-[0.18em] text-cyanSoft">NPTEL / IIT Kharagpur</p>
+              <p class="mt-4 text-slate-300">Validates cloud computing fundamentals including infrastructure concepts, scalable systems, and core service models relevant to modern backend engineering.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-shell">
+        <div class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+          <div data-aos="fade-right" class="glass-card rounded-3xl p-8">
+            <span class="tag">Contact</span>
+            <h2 class="mt-5 font-display text-3xl font-bold text-white">Let&apos;s build something meaningful</h2>
+            <p class="mt-5 max-w-xl text-lg leading-8 text-slate-300">
+              If you&apos;re hiring for a backend-heavy full stack role, need an engineer who can own APIs and
+              implementation details, or want to discuss a project, send a message here.
+            </p>
+            <div class="mt-8 space-y-4 text-slate-300">
+              <p>Email: <a class="text-cyanSoft" href="mailto:ksao180205@gmail.com">ksao180205@gmail.com</a></p>
+              <p>GitHub: <a class="text-cyanSoft" href="https://github.com/Kanaksao18" target="_blank"
+                  rel="noreferrer">github.com/Kanaksao18</a></p>
+              <p>LinkedIn: <a class="text-cyanSoft" href="https://www.linkedin.com/in/kanaksao18/" target="_blank"
+                  rel="noreferrer">linkedin.com/in/kanaksao18</a></p>
+            </div>
+          </div>
+
+          <form id="contact-form" data-aos="fade-left" class="glass-card rounded-3xl p-8">
+            <div class="grid gap-6">
+              <div>
+                <label for="name" class="mb-2 block text-sm font-semibold text-slate-200">Name</label>
+                <input id="name" name="name" type="text" required
+                  class="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none transition focus:border-cyanAccent/50 focus:ring-2 focus:ring-cyanAccent/20"
+                  placeholder="Your name" />
+              </div>
+              <div>
+                <label for="email" class="mb-2 block text-sm font-semibold text-slate-200">Email</label>
+                <input id="email" name="email" type="email" required
+                  class="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none transition focus:border-cyanAccent/50 focus:ring-2 focus:ring-cyanAccent/20"
+                  placeholder="you@example.com" />
+              </div>
+              <div>
+                <label for="message" class="mb-2 block text-sm font-semibold text-slate-200">Message</label>
+                <textarea id="message" name="message" rows="6" required
+                  class="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none transition focus:border-cyanAccent/50 focus:ring-2 focus:ring-cyanAccent/20"
+                  placeholder="Tell me about the role, project, or opportunity."></textarea>
+              </div>
+              <button id="submit-button" type="submit" class="primary-btn w-full sm:w-fit">Send Message</button>
+              <p id="form-status" class="min-h-[1.5rem] text-sm font-semibold text-slate-300"></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/5">
+    <div
+      class="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-slate-400 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-12">
+      <p>Kanak</p>
+      <p>&copy; 2026 Kanak. Built for recruiter conversations and real engineering opportunities.</p>
+      <div class="flex gap-4">
+        <a href="https://github.com/Kanaksao18" target="_blank" rel="noreferrer"
+          class="transition hover:text-cyanSoft">GitHub</a>
+        <a href="https://www.linkedin.com/in/kanaksao18/" target="_blank" rel="noreferrer"
+          class="transition hover:text-cyanSoft">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="./js/config.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
+
